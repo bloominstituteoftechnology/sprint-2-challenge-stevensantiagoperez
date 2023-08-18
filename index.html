@@ -74,7 +74,7 @@
     // ❗ Debug properly using the Console
 
     // 👉 CHALLENGE 1
-    function profileActivation() {
+    function profileActivation(profile, reason) {
       // 🧠 profileActivation takes two arguments, profile and reason, which are an object and a string respectively
       //  The reason arg is only used -and therefore required- to deactivate profiles, not to activate them
       //  The profile arg has an `active` property holding a Boolean value
@@ -86,6 +86,22 @@
       //    * If the profile is active but it has a `reason` prop, return the string "confirm status manually"
       //    * If the profile is **missing** an `active` prop, return the string "impossible to ascertain status"
       // 🌟 HINT: to confirm the existence of a prop, check that its value is not undefined
+      
+      let userProfile = profile
+      userProfile = {
+        active: true,
+      }
+
+      if (userProfile.active === true ) {
+        userProfile.active = false
+        userProfile.reason = 'deleted'
+      } else if (userProfile.active === false) {
+        userProfile.active = true
+        delete userProfile.reason
+      }
+
+      return userProfile
+
     }
 
     // 👉 CHALLENGE 2
